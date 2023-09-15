@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Body Mass Index</title>
+    <link rel="stylesheet" href="styl.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="ee.09_rysunek2.jpg" alt="" />
+      </header>
+      <aside>
+        <hr />
+        <a href="index.html"><h2>BMI</h2></a>
+        <hr />
+        <a href="kalkulator.html"><h2>Kalkulator</h2></a>
+        <hr />
+      </aside>
+      <section>
+        <form action="#">
+          <p>Waga</p>
+          <input type="number" id="kg" />
+          <p>Wzrost</p>
+          <input type="number" id="cm" />
+          <button>Oblicz BMI</button>
+        </form>
+      </section>
+      <footer>
+        <p>Autor strony: 0123456789</p>
+      </footer>
+    </main>
+  </body>
+  <script>
+    const button = document.querySelector("button");
+
+    button.addEventListender(oblicz);
+
+    const oblicz = (evt) => {
+      evt.preventDefault();
+      let height = document.querySelector("#cm").value;
+      let weight = document.querySelector("#kg").value;
+      const BMI = weight / (height * height);
+    };
+  </script>
+</html>
