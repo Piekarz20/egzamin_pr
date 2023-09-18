@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Body Mass Index</title>
+    <link rel="stylesheet" href="styl.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="baner.gif" alt="" />
+      </header>
+      <aside>
+        <hr />
+        <a href="index.html"><h2>BMI</h2></a>
+        <hr />
+        <a href="kalkulator.html"><h2>Kalkulator</h2></a>
+        <hr />
+      </aside>
+      <section>
+        <form action="#">
+          <label for="kg">Waga</label>
+          <input type="number" id="kg" />
+          <label for="cm">Wzrost</label>
+          <input type="number" id="cm" />
+          <button>Oblicz BMI</button>
+        </form>
+        <p id="displayBMI"></p>
+        <p id="displayCat"></p>
+      </section>
+      <footer>
+        <p>Autor strony: 0123456789</p>
+      </footer>
+    </main>
+  </body>
+  <script>
+    const button = document.querySelector("button");
+    const displayBMI = document.querySelector("#displayBMI");
+    const displayCat = document.querySelector("#displayCat");
+
+    const oblicz = (evt) => {
+      evt.preventDefault();
+      let height = document.querySelector("#cm").value;
+      let weight = document.querySelector("#kg").value;
+      height = height / 100;
+      const BMI = (weight / (height * height)).toFixed(2);
+      displayBMI.textContent = "Twój BMI: " + BMI;
+      displayCat.style.color = "#ff0000";
+      if (BMI > 18.5 && BMI < 24.9) {
+        displayCat.textContent = "Waga prawidłowa";
+        displayCat.style.color = "#008000";
+      } else if (BMI > 25 && BMI < 29.9) {
+        displayCat.textContent = "Nadwaga";
+      } else if (BMI > 30 && BMI < 34.9) {
+        displayCat.textContent = "Otyłość 1st.";
+      } else if (BMI > 35 && BMI < 39.9) {
+        displayCat.textContent = "Otyłość 2st.";
+      } else if (BMI > 39.9) {
+        displayCat.textContent = "Otyłość 3st.";
+      } else if (BMI < 18.5) {
+        displayCat.textContent = "Niedowaga";
+      }
+    };
+    button.addEventListener("click", oblicz);
+  </script>
+</html>
