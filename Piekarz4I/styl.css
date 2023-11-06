@@ -44,15 +44,21 @@ footer {
 table {
   width: 500px;
   text-align: center;
+  color: black;
 }
 .head {
   background-color: #777777;
+}
+table tr:nth-child(1) {
+  font-weight: bold;
 }
 table tr:nth-child(2n + 1) {
   background-color: #aaaaaa;
 }
 h2 {
   color: #af0215;
+}
+a {
   text-decoration: none;
 }
 form {
